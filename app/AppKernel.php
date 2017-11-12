@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             // custom bundles
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
 
             // my bundle
             new AppBundle\AppBundle(),
