@@ -81,6 +81,9 @@ class GenusController extends Controller
         }
         */
 
+        $this->get('logger')
+            ->info('Showing genus: '.$genusName);
+
         // count notes of the last three months
         $recentNotes = $em->getRepository('AppBundle:GenusNote')
             ->findAllRecentNotesForGenus($genus);
