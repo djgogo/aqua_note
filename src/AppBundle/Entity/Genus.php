@@ -61,7 +61,7 @@ class Genus
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -69,7 +69,7 @@ class Genus
     }
 
     /**
-     * @param mixed $id
+     * @param int $id
      */
     public function setId($id)
     {
@@ -77,7 +77,7 @@ class Genus
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -85,7 +85,7 @@ class Genus
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -93,7 +93,7 @@ class Genus
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getSubFamily()
     {
@@ -101,7 +101,7 @@ class Genus
     }
 
     /**
-     * @param mixed $subFamily
+     * @param string $subFamily
      */
     public function setSubFamily($subFamily)
     {
@@ -109,7 +109,7 @@ class Genus
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getSpeciesCount()
     {
@@ -117,7 +117,7 @@ class Genus
     }
 
     /**
-     * @param mixed $speciesCount
+     * @param int $speciesCount
      */
     public function setSpeciesCount($speciesCount)
     {
@@ -125,7 +125,7 @@ class Genus
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getFunFact()
     {
@@ -133,20 +133,23 @@ class Genus
     }
 
     /**
-     * @param mixed $funFact
+     * @param string $funFact
      */
     public function setFunFact($funFact)
     {
         $this->funFact = $funFact;
     }
 
+    /**
+     * @return \DateTime
+     */
     public function getUpdatedAt()
     {
         return new \DateTime('-'.rand(0, 100).' days');
     }
 
     /**
-     * @return mixed
+     * @return bool
      */
     public function getIsPublished()
     {
@@ -154,7 +157,7 @@ class Genus
     }
 
     /**
-     * @param mixed $isPublished
+     * @param bool $isPublished
      */
     public function setIsPublished($isPublished)
     {

@@ -44,7 +44,7 @@ class GenusNote
     private $genus;
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getId()
     {
@@ -52,7 +52,7 @@ class GenusNote
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUsername()
     {
@@ -60,7 +60,7 @@ class GenusNote
     }
 
     /**
-     * @param mixed $username
+     * @param string $username
      */
     public function setUsername($username)
     {
@@ -68,7 +68,7 @@ class GenusNote
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUserAvatarFilename()
     {
@@ -76,7 +76,7 @@ class GenusNote
     }
 
     /**
-     * @param mixed $userAvatarFilename
+     * @param string $userAvatarFilename
      */
     public function setUserAvatarFilename($userAvatarFilename)
     {
@@ -84,7 +84,7 @@ class GenusNote
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getNote()
     {
@@ -92,7 +92,7 @@ class GenusNote
     }
 
     /**
-     * @param mixed $note
+     * @param string $note
      */
     public function setNote($note)
     {
@@ -100,7 +100,7 @@ class GenusNote
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -108,7 +108,7 @@ class GenusNote
     }
 
     /**
-     * @param mixed $createdAt
+     * @param \DateTime $createdAt
      */
     public function setCreatedAt($createdAt)
     {
@@ -116,7 +116,7 @@ class GenusNote
     }
 
     /**
-     * @return mixed
+     * @return Genus
      */
     public function getGenus()
     {
@@ -124,7 +124,7 @@ class GenusNote
     }
 
     /**
-     * @param mixed $genus
+     * @param Genus $genus
      */
     public function setGenus(Genus $genus)
     {
