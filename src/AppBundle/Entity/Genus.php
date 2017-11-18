@@ -30,7 +30,8 @@ class Genus
     private $name;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\SubFamily")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $subFamily;
 
@@ -48,6 +49,11 @@ class Genus
      * @ORM\Column(type="boolean")
      */
     private $isPublished = true;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $firstDiscoveredAt;
 
     /**
      * @ORM\OneToMany(targetEntity="GenusNote", mappedBy="genus")
@@ -93,7 +99,7 @@ class Genus
     }
 
     /**
-     * @return string
+     * @return SubFamily
      */
     public function getSubFamily()
     {
@@ -101,9 +107,9 @@ class Genus
     }
 
     /**
-     * @param string $subFamily
+     * @param SubFamily $subFamily
      */
-    public function setSubFamily($subFamily)
+    public function setSubFamily(SubFamily $subFamily = null)
     {
         $this->subFamily = $subFamily;
     }
@@ -170,5 +176,21 @@ class Genus
     public function getNotes()
     {
         return $this->notes;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getFirstDiscoveredAt()
+    {
+        return $this->firstDiscoveredAt;
+    }
+
+    /**
+     * @param \DateTime|null $firstDiscoveredAt
+     */
+    public function setFirstDiscoveredAt(\DateTime $firstDiscoveredAt = null)
+    {
+        $this->firstDiscoveredAt = $firstDiscoveredAt;
     }
 }
