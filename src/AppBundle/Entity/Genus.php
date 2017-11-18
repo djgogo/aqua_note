@@ -129,7 +129,7 @@ class Genus
      */
     public function getFunFact()
     {
-        return $this->funFact;
+        return '**Test** ' . $this->funFact;
     }
 
     /**
