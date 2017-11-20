@@ -30,7 +30,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function getCredentials(Request $request)
     {
-        die('i am here');
         $isLoginSubmit = $request->getPathInfo() == '/login' && $request->isMethod('POST');
         if (!$isLoginSubmit) {
             // skip authentication
@@ -51,7 +50,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        die('i am here');
         $username = $credentials['_username'];
 
         return $this->em->getRepository('AppBundle:User')

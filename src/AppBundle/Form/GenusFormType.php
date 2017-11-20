@@ -36,7 +36,8 @@ class GenusFormType extends AbstractType
                 'widget' => 'single_text',
                 'attr' => ['class' => 'js-datepicker'],
                 'html5' => false,
-            ]);
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -44,10 +45,5 @@ class GenusFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => 'AppBundle\Entity\Genus'
         ]);
-    }
-
-    public function getName()
-    {
-        return 'app_bundle_genus_form_type';
     }
 }
