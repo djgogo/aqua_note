@@ -1,11 +1,9 @@
-# Joyful Development with Symfony
+# Symfony 3.1 App
 
-Well hi there! This repository holds the code and script
+This repository holds the code and script
 for the Symfony course on KnpUniversity.
 
 ## Setup
-
-If you've just downloaded the code, congratulations!
 
 To get it working, follow these steps:
 
@@ -58,13 +56,3 @@ php bin/console server:run
 Now check out the site at `http://localhost:8000`
 
 Have fun!
-
-## Have some Ideas or Feedback?
-
-And as always, thanks so much for your support and letting us do what
-we love!
-
-If you have suggestions or questions, please feel free to
-open an issue or message us.
-
-<3 Your friends at KnpUniversity

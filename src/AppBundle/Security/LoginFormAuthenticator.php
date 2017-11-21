@@ -60,13 +60,9 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
     {
         $password = $credentials['_password'];
 
-        if ($password == 'iliketurtles') {
+        if ($this->passwordEncoder->isPasswordValid($user, $password)) {
             return true;
         }
-
-//        if ($this->passwordEncoder->isPasswordValid($user, $password)) {
-//            return true;
-//        }
 
         return false;
     }
@@ -78,6 +74,6 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
 
     protected function getDefaultSuccessRedirectUrl()
     {
-        return $this->router->generate('/');
+        return $this->router->generate('homepage');
     }
 }

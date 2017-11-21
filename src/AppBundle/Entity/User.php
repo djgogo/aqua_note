@@ -8,12 +8,15 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
+ * @UniqueEntity(fields={"email"}, message="It looks like you already have an account!")
  */
 class User implements UserInterface
 {
@@ -26,9 +29,26 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
      * @ORM\Column(type="string", unique=true)
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $password;
+
+    /**
+     * @Assert\NotBlank(groups={"Registration"})
+     */
+    private $plainPassword;
+
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $roles = [];
 
     /**
      * Returns the username used to authenticate the user.
@@ -41,7 +61,7 @@ class User implements UserInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail()
     {
@@ -49,11 +69,38 @@ class User implements UserInterface
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+        // guarantees that the entity looks "dirty" to Doctrine
+        // when changing the plainPassword
+        $this->password = null;
     }
 
     /**
@@ -74,7 +121,20 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        return ['ROLCE_USER'];
+        $roles = $this->roles;
+
+        // give everyone ROLE_USER!
+        if (!in_array('ROLE_USER', $roles)) {
+            $roles[] = 'ROLE_USER';
+        }
+
+        return $roles;
+
+    }
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
     }
 
     /**
@@ -87,7 +147,7 @@ class User implements UserInterface
      */
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->password;
     }
 
     /**
@@ -110,6 +170,6 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        $this->plainPassword = null;
     }
 }
