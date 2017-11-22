@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20171112171346 extends AbstractMigration
+class Version20160524141318 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -16,9 +16,9 @@ class Version20171112171346 extends AbstractMigration
     public function up(Schema $schema)
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE genus ADD is_published TINYINT(1) NOT NULL');
+        $this->addSql('ALTER TABLE user ADD roles LONGTEXT NOT NULL COMMENT \'(DC2Type:json_array)\'');
     }
 
     /**
@@ -27,8 +27,8 @@ class Version20171112171346 extends AbstractMigration
     public function down(Schema $schema)
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE genus DROP is_published');
+        $this->addSql('ALTER TABLE user DROP roles');
     }
 }
