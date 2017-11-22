@@ -25,7 +25,9 @@ class GenusFormType extends AbstractType
                 }
             ])
             ->add('speciesCount')
-            ->add('funFact')
+            ->add('funFact', null, [
+                'help' => 'For example, Leatherback sea turtles can travel more than 10,000 miles every year!'
+            ])
             ->add('isPublished', ChoiceType::class, [
                 'choices' => [
                     'Yes' => true,
